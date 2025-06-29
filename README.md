@@ -1,37 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vocare App - Terminverwaltung
 
-## Getting Started
+Eine moderne, benutzerfreundliche Terminverwaltung für medizinische Praxen. Entwickelt mit Next.js, TypeScript und Tailwind CSS.
 
-First, run the development server:
+## ✨ Features
+
+### 🎨 Moderne UI/UX
+- **Glassmorphism Design**: Moderne Glaseffekte und Backdrop-Blur
+- **Smooth Animations**: Flüssige Übergänge und Hover-Effekte
+- **Responsive Design**: Optimiert für alle Bildschirmgrößen
+- **Dark/Light Mode**: Automatische Theme-Erkennung mit manueller Umschaltung
+- **Enhanced Gradients**: Moderne Farbverläufe und Schatten
+
+### 📅 Terminverwaltung
+- **Mehrere Ansichten**: Liste, Wochen- und Monatsansicht
+- **Intelligente Filterung**: Nach Patient, Kategorie und Zeitraum
+- **Kategorisierung**: Farbcodierte Terminkategorien
+- **Patientenverwaltung**: Vollständige Patientenprofile
+- **Notizen**: Detaillierte Terminnotizen
+
+### 🚀 Performance
+- **Optimierte Ladezeiten**: Schnelle Initialisierung
+- **Smooth Scrolling**: Benutzerdefinierte Scrollbars
+- **Lazy Loading**: Effiziente Datenladung
+- **Caching**: Intelligente Datenzwischenspeicherung
+
+## 🛠️ Technologie-Stack
+
+- **Framework**: Next.js 15 mit App Router
+- **Sprache**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **UI Components**: Radix UI + Custom Components
+- **Icons**: Lucide React
+- **Datenbank**: Supabase
+- **Theme**: next-themes
+- **Datum**: date-fns
+
+## 🎯 UI-Verbesserungen
+
+### Visuelle Verbesserungen
+- **Enhanced Gradients**: Moderne Farbverläufe (indigo → purple → cyan)
+- **Glass Effects**: Backdrop-Blur und Transparenz-Effekte
+- **Improved Shadows**: Mehrschichtige Schatten für Tiefe
+- **Better Typography**: Optimierte Schriftgrößen und -gewichte
+- **Color Coding**: Konsistente Farbkodierung für verschiedene Elemente
+
+### Animationen
+- **Fade-in Effects**: Sanfte Einblendungen beim Laden
+- **Hover Animations**: Interaktive Hover-Effekte
+- **Loading States**: Verbesserte Ladeanimationen
+- **Smooth Transitions**: Flüssige Übergänge zwischen Zuständen
+
+### Benutzerfreundlichkeit
+- **Enhanced Navigation**: Verbesserte Tab-Navigation
+- **Better Forms**: Modernere Formulare mit visueller Hierarchie
+- **Improved Cards**: Bessere Kartendesigns mit Hover-Effekten
+- **Theme Switcher**: Elegante Theme-Umschaltung
+- **Mobile Optimization**: Optimierte mobile Erfahrung
+
+## 🚀 Installation
 
 ```bash
+# Repository klonen
+git clone https://github.com/your-username/vocare-app.git
+cd vocare-app
+
+# Dependencies installieren
+npm install
+
+# Entwicklungsserver starten
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📱 Verwendung
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Termine erstellen**: Klicken Sie auf "Neuer Termin" im Header
+2. **Termine bearbeiten**: Klicken Sie auf einen Termin in der Liste
+3. **Filtern**: Nutzen Sie die Filterleiste für gezielte Suche
+4. **Ansichten wechseln**: Verwenden Sie die Tabs für verschiedene Ansichten
+5. **Theme wechseln**: Nutzen Sie den Theme-Switcher im Header
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Design-System
 
-## Learn More
+### Farben
+- **Primary**: Indigo (#4f46e5)
+- **Secondary**: Purple (#7c3aed)
+- **Accent**: Cyan (#06b6d4)
+- **Success**: Green (#10b981)
+- **Warning**: Amber (#f59e0b)
+- **Error**: Red (#ef4444)
 
-To learn more about Next.js, take a look at the following resources:
+### Schatten
+- **Soft**: Subtile Schatten für Karten
+- **Medium**: Mittlere Schatten für Hover-Effekte
+- **Strong**: Starke Schatten für Modals
+- **Glow**: Glüheffekte für Buttons
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Animationen
+- **fade-in-up**: Sanfte Einblendung von unten
+- **slide-in-right**: Einblendung von rechts
+- **hover-lift**: Anheben beim Hover
+- **hover-scale**: Vergrößerung beim Hover
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 Lizenz
 
-## Deploy on Vercel
+MIT License - siehe [LICENSE](LICENSE) für Details.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Beitragen
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Beiträge sind willkommen! Bitte lesen Sie unsere [Contributing Guidelines](CONTRIBUTING.md).
+
+## 📞 Support
+
+Bei Fragen oder Problemen erstellen Sie bitte ein [Issue](https://github.com/your-username/vocare-app/issues).
+
+---
+
+Entwickelt mit ❤️ für medizinische Praxen
 

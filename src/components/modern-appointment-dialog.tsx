@@ -12,7 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { createAppointment, updateAppointment, deleteAppointment } from "@/lib/appointments"
-import { Calendar, Clock, MapPin, User, Tag, FileText, Trash2, Save } from "lucide-react"
+import { Calendar, Clock, MapPin, User, Tag, FileText, Trash2, Save, AlertTriangle } from "lucide-react"
 import type { Appointment, Patient, Category } from "@/types/index"
 
 interface ModernAppointmentDialogProps {
@@ -114,24 +114,33 @@ export function ModernAppointmentDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[700px] max-h-[90vh] overflow-y-auto bg-gradient-to-br from-white to-indigo-50/30 border-0 shadow-2xl">
-        <DialogHeader className="space-y-3 pb-6 border-b border-gray-100">
-          <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-cyan-600 bg-clip-text text-transparent">
-            {appointment ? "Termin bearbeiten" : "Neuen Termin erstellen"}
-          </DialogTitle>
-          <DialogDescription className="text-gray-600">
-            {appointment ? "Bearbeiten Sie die Termindetails" : "Erstellen Sie einen neuen Termin für Ihren Patienten"}
-          </DialogDescription>
+      <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto bg-gradient-to-br from-white to-indigo-50/30 border-0 shadow-strong animate-fade-in-up">
+        <DialogHeader className="space-y-4 pb-8 border-b border-gray-100">
+          <div className="flex items-center gap-4">
+            <div className="p-3 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl shadow-soft">
+              <Calendar className="h-6 w-6 text-white" />
+            </div>
+            <div>
+              <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                {appointment ? "Termin bearbeiten" : "Neuen Termin erstellen"}
+              </DialogTitle>
+              <DialogDescription className="text-gray-600 mt-2">
+                {appointment ? "Bearbeiten Sie die Termindetails" : "Erstellen Sie einen neuen Termin für Ihren Patienten"}
+              </DialogDescription>
+            </div>
+          </div>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-6 pt-2">
+        <form onSubmit={handleSubmit} className="space-y-8 pt-4">
           {/* Title and Category Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="p-4 bg-white/50 border-gray-100 shadow-sm">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <FileText className="h-4 w-4 text-indigo-500" />
-                  <Label htmlFor="title" className="font-medium">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card className="p-6 bg-white/80 backdrop-blur-sm border-gray-100 shadow-soft hover-lift">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-indigo-100 rounded-lg">
+                    <FileText className="h-5 w-5 text-indigo-600" />
+                  </div>
+                  <Label htmlFor="title" className="text-lg font-semibold text-gray-800">
                     Titel
                   </Label>
                 </div>
@@ -140,17 +149,19 @@ export function ModernAppointmentDialog({
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                   placeholder="z.B. Hausbesuch, Beratung..."
-                  className="border-gray-200 focus:border-indigo-500 focus:ring-indigo-500"
+                  className="border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 focus-ring text-lg py-3"
                   required
                 />
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/50 border-gray-100 shadow-sm">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <Tag className="h-4 w-4 text-cyan-500" />
-                  <Label htmlFor="category" className="font-medium">
+            <Card className="p-6 bg-white/80 backdrop-blur-sm border-gray-100 shadow-soft hover-lift">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-green-100 rounded-lg">
+                    <Tag className="h-5 w-5 text-green-600" />
+                  </div>
+                  <Label htmlFor="category" className="text-lg font-semibold text-gray-800">
                     Kategorie
                   </Label>
                 </div>
@@ -158,18 +169,18 @@ export function ModernAppointmentDialog({
                   value={formData.category}
                   onValueChange={(value) => setFormData({ ...formData, category: value })}
                 >
-                  <SelectTrigger className="border-gray-200 focus:border-cyan-500 focus:ring-cyan-500">
+                  <SelectTrigger className="border-gray-200 focus:border-green-500 focus:ring-green-500 focus-ring text-lg py-3">
                     <SelectValue placeholder="Kategorie auswählen" />
                   </SelectTrigger>
                   <SelectContent>
                     {categories.map((category) => (
                       <SelectItem key={category.id} value={category.id}>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-3">
                           <div
-                            className="w-3 h-3 rounded-full"
+                            className="w-4 h-4 rounded-full shadow-soft"
                             style={{ backgroundColor: category.color || "#6b7280" }}
                           />
-                          {category.label}
+                          <span className="font-medium">{category.label}</span>
                         </div>
                       </SelectItem>
                     ))}
@@ -177,9 +188,9 @@ export function ModernAppointmentDialog({
                 </Select>
                 {selectedCategory && (
                   <Badge
-                    className="mt-2"
+                    className="mt-3 px-4 py-2 text-sm font-medium shadow-soft"
                     style={{
-                      backgroundColor: selectedCategory.color + "20",
+                      backgroundColor: selectedCategory.color + "15",
                       color: selectedCategory.color ?? undefined,
                       border: `1px solid ${selectedCategory.color}30`,
                     }}
@@ -192,12 +203,14 @@ export function ModernAppointmentDialog({
           </div>
 
           {/* Date and Time Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="p-4 bg-white/50 border-gray-100 shadow-sm">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4 text-green-500" />
-                  <Label htmlFor="start_time" className="font-medium">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card className="p-6 bg-white/80 backdrop-blur-sm border-gray-100 shadow-soft hover-lift">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-blue-100 rounded-lg">
+                    <Calendar className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <Label htmlFor="start_time" className="text-lg font-semibold text-gray-800">
                     Startzeit
                   </Label>
                 </div>
@@ -206,17 +219,19 @@ export function ModernAppointmentDialog({
                   type="datetime-local"
                   value={formData.start_time}
                   onChange={(e) => setFormData({ ...formData, start_time: e.target.value })}
-                  className="border-gray-200 focus:border-green-500 focus:ring-green-500"
+                  className="border-gray-200 focus:border-blue-500 focus:ring-blue-500 focus-ring text-lg py-3"
                   required
                 />
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/50 border-gray-100 shadow-sm">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4 text-orange-500" />
-                  <Label htmlFor="end_time" className="font-medium">
+            <Card className="p-6 bg-white/80 backdrop-blur-sm border-gray-100 shadow-soft hover-lift">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-orange-100 rounded-lg">
+                    <Clock className="h-5 w-5 text-orange-600" />
+                  </div>
+                  <Label htmlFor="end_time" className="text-lg font-semibold text-gray-800">
                     Endzeit
                   </Label>
                 </div>
@@ -225,19 +240,21 @@ export function ModernAppointmentDialog({
                   type="datetime-local"
                   value={formData.end_time}
                   onChange={(e) => setFormData({ ...formData, end_time: e.target.value })}
-                  className="border-gray-200 focus:border-orange-500 focus:ring-orange-500"
+                  className="border-gray-200 focus:border-orange-500 focus:ring-orange-500 focus-ring text-lg py-3"
                 />
               </div>
             </Card>
           </div>
 
           {/* Patient and Location Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="p-4 bg-white/50 border-gray-100 shadow-sm">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <User className="h-4 w-4 text-indigo-500" />
-                  <Label htmlFor="patient" className="font-medium">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <Card className="p-6 bg-white/80 backdrop-blur-sm border-gray-100 shadow-soft hover-lift">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-purple-100 rounded-lg">
+                    <User className="h-5 w-5 text-purple-600" />
+                  </div>
+                  <Label htmlFor="patient" className="text-lg font-semibold text-gray-800">
                     Patient
                   </Label>
                 </div>
@@ -245,18 +262,21 @@ export function ModernAppointmentDialog({
                   value={formData.patient}
                   onValueChange={(value) => setFormData({ ...formData, patient: value })}
                 >
-                  <SelectTrigger className="border-gray-200 focus:border-indigo-500 focus:ring-indigo-500">
+                  <SelectTrigger className="border-gray-200 focus:border-purple-500 focus:ring-purple-500 focus-ring text-lg py-3">
                     <SelectValue placeholder="Patient auswählen" />
                   </SelectTrigger>
                   <SelectContent>
                     {patients.map((patient) => (
                       <SelectItem key={patient.id} value={patient.id}>
-                        <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-full flex items-center justify-center text-white text-xs font-medium">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-soft">
                             {patient.firstname?.[0]}
                             {patient.lastname?.[0]}
                           </div>
-                          {patient.firstname} {patient.lastname}
+                          <div>
+                            <div className="font-medium">{patient.firstname} {patient.lastname}</div>
+                            <div className="text-sm text-gray-500">Patient</div>
+                          </div>
                         </div>
                       </SelectItem>
                     ))}
@@ -265,11 +285,13 @@ export function ModernAppointmentDialog({
               </div>
             </Card>
 
-            <Card className="p-4 bg-white/50 border-gray-100 shadow-sm">
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-red-500" />
-                  <Label htmlFor="location" className="font-medium">
+            <Card className="p-6 bg-white/80 backdrop-blur-sm border-gray-100 shadow-soft hover-lift">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-red-100 rounded-lg">
+                    <MapPin className="h-5 w-5 text-red-600" />
+                  </div>
+                  <Label htmlFor="location" className="text-lg font-semibold text-gray-800">
                     Ort
                   </Label>
                 </div>
@@ -278,18 +300,20 @@ export function ModernAppointmentDialog({
                   value={formData.location}
                   onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                   placeholder="z.B. Praxis, Zuhause beim Patienten..."
-                  className="border-gray-200 focus:border-red-500 focus:ring-red-500"
+                  className="border-gray-200 focus:border-red-500 focus:ring-red-500 focus-ring text-lg py-3"
                 />
               </div>
             </Card>
           </div>
 
           {/* Notes */}
-          <Card className="p-4 bg-white/50 border-gray-100 shadow-sm">
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <FileText className="h-4 w-4 text-gray-500" />
-                <Label htmlFor="notes" className="font-medium">
+          <Card className="p-6 bg-white/80 backdrop-blur-sm border-gray-100 shadow-soft hover-lift">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-amber-100 rounded-lg">
+                  <FileText className="h-5 w-5 text-amber-600" />
+                </div>
+                <Label htmlFor="notes" className="text-lg font-semibold text-gray-800">
                   Notizen
                 </Label>
               </div>
@@ -299,13 +323,13 @@ export function ModernAppointmentDialog({
                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                 placeholder="Zusätzliche Informationen zum Termin..."
                 rows={4}
-                className="border-gray-200 focus:border-gray-500 focus:ring-gray-500 resize-none"
+                className="border-gray-200 focus:border-amber-500 focus:ring-amber-500 focus-ring resize-none text-lg"
               />
             </div>
           </Card>
 
           {/* Action Buttons */}
-          <div className="flex justify-between pt-6 border-t border-gray-100">
+          <div className="flex flex-col sm:flex-row justify-between gap-4 pt-8 border-t border-gray-100">
             <div>
               {appointment && (
                 <Button
@@ -313,29 +337,29 @@ export function ModernAppointmentDialog({
                   variant="destructive"
                   onClick={handleDelete}
                   disabled={loading}
-                  className="bg-red-500 hover:bg-red-600"
+                  className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 shadow-soft hover-lift focus-ring"
                 >
-                  <Trash2 className="mr-2 h-4 w-4" />
-                  Löschen
+                  <Trash2 className="mr-2 h-5 w-5" />
+                  Termin löschen
                 </Button>
               )}
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               <Button
                 type="button"
                 variant="outline"
                 onClick={() => onOpenChange(false)}
                 disabled={loading}
-                className="border-gray-300 hover:bg-gray-50"
+                className="border-gray-300 hover:bg-gray-50 hover-scale focus-ring px-6 py-3"
               >
                 Abbrechen
               </Button>
               <Button
                 type="submit"
                 disabled={loading}
-                className="bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white shadow-lg"
+                className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white shadow-glow hover-lift focus-ring px-8 py-3"
               >
-                <Save className="mr-2 h-4 w-4" />
+                <Save className="mr-2 h-5 w-5" />
                 {loading ? "Speichern..." : "Speichern"}
               </Button>
             </div>
