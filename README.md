@@ -28,7 +28,7 @@ This is a fullstack prototype for the **Vocare tech challenge** — a small, res
 
 ## 📂 Project Structure (Summary)
 
-src/
+src/ 
 ├── app/appointments/ # Main calendar view
 ├── components/appointments/ # AppointmentCard, filters, form
 ├── lib/ # Supabase client + server setup
@@ -68,8 +68,12 @@ However, I chose to write most of the code and documentation in **English**, so 
 npm install
 
 
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+
+
+NEXT_PUBLIC_SUPABASE_URL=https://jhlmwwtqfhfutbwqfbnu.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpobG13d3RxZmhmdXRid3FmYm51Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA5NjgzNTIsImV4cCI6MjA2NjU0NDM1Mn0.0AFm0pYvthZqw6c00ugg_kVcAFXQ6TB0tJKNFZeXkoI
+
+
 
 
 npm run dev

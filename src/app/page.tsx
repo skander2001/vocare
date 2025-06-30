@@ -183,8 +183,8 @@ export default function AppointmentsPage() {
                   <ThemeSwitcher />
                   <Button
                     variant="secondary"
-                    className="glass border-white/30 text-white hover:bg-white/30 hover-scale focus-ring"
-                    size="lg"
+                      className="bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 hover:text-white transition-all duration-200 shadow-lg"
+                      size="lg"
                   >
                     <Search className="mr-2 h-4 w-4" />
                     Suchen

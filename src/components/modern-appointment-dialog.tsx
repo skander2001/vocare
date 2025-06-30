@@ -114,10 +114,10 @@ export function ModernAppointmentDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto bg-gradient-to-br from-white to-indigo-50/30 border-0 shadow-strong animate-fade-in-up">
+      <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto bg-white border-0 shadow-2xl">
         <DialogHeader className="space-y-4 pb-8 border-b border-gray-100">
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl shadow-soft">
+            <div className="p-3 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl shadow-lg">
               <Calendar className="h-6 w-6 text-white" />
             </div>
             <div>
@@ -125,7 +125,9 @@ export function ModernAppointmentDialog({
                 {appointment ? "Termin bearbeiten" : "Neuen Termin erstellen"}
               </DialogTitle>
               <DialogDescription className="text-gray-600 mt-2">
-                {appointment ? "Bearbeiten Sie die Termindetails" : "Erstellen Sie einen neuen Termin für Ihren Patienten"}
+                {appointment
+                  ? "Bearbeiten Sie die Termindetails"
+                  : "Erstellen Sie einen neuen Termin für Ihren Patienten"}
               </DialogDescription>
             </div>
           </div>
@@ -134,7 +136,7 @@ export function ModernAppointmentDialog({
         <form onSubmit={handleSubmit} className="space-y-8 pt-4">
           {/* Title and Category Row */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <Card className="p-6 bg-white/80 backdrop-blur-sm border-gray-100 shadow-soft hover-lift">
+            <Card className="p-6 bg-white/80 backdrop-blur-sm border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-1">
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-indigo-100 rounded-lg">

@@ -188,7 +188,7 @@ export function FilterBar({ appointments, patients, categories, onFilter }: Filt
               <Button
                 variant="outline"
                 onClick={clearFilters}
-                className="w-full border-red-200 hover:bg-red-50 hover:border-red-300 hover:text-red-600 bg-transparent hover-scale focus-ring"
+                className="w-full border-red-200 hover:bg-red-50 hover:border-red-300 hover:text-red-600  hover-scale focus-ring"
               >
                 <X className="mr-2 h-4 w-4" />
                 Filter zurücksetzen
