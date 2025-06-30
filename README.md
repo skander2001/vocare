@@ -1,119 +1,80 @@
-# Vocare App - Terminverwaltung
+# 🗓 Vocare Fullstack Calendar Prototype
 
-Eine moderne, benutzerfreundliche Terminverwaltung für medizinische Praxen. Entwickelt mit Next.js, TypeScript und Tailwind CSS.
-
-## ✨ Features
-
-### 🎨 Moderne UI/UX
-- **Glassmorphism Design**: Moderne Glaseffekte und Backdrop-Blur
-- **Smooth Animations**: Flüssige Übergänge und Hover-Effekte
-- **Responsive Design**: Optimiert für alle Bildschirmgrößen
-- **Dark/Light Mode**: Automatische Theme-Erkennung mit manueller Umschaltung
-- **Enhanced Gradients**: Moderne Farbverläufe und Schatten
-
-### 📅 Terminverwaltung
-- **Mehrere Ansichten**: Liste, Wochen- und Monatsansicht
-- **Intelligente Filterung**: Nach Patient, Kategorie und Zeitraum
-- **Kategorisierung**: Farbcodierte Terminkategorien
-- **Patientenverwaltung**: Vollständige Patientenprofile
-- **Notizen**: Detaillierte Terminnotizen
-
-### 🚀 Performance
-- **Optimierte Ladezeiten**: Schnelle Initialisierung
-- **Smooth Scrolling**: Benutzerdefinierte Scrollbars
-- **Lazy Loading**: Effiziente Datenladung
-- **Caching**: Intelligente Datenzwischenspeicherung
-
-## 🛠️ Technologie-Stack
-
-- **Framework**: Next.js 15 mit App Router
-- **Sprache**: TypeScript
-- **Styling**: Tailwind CSS 4
-- **UI Components**: Radix UI + Custom Components
-- **Icons**: Lucide React
-- **Datenbank**: Supabase
-- **Theme**: next-themes
-- **Datum**: date-fns
-
-## 🎯 UI-Verbesserungen
-
-### Visuelle Verbesserungen
-- **Enhanced Gradients**: Moderne Farbverläufe (indigo → purple → cyan)
-- **Glass Effects**: Backdrop-Blur und Transparenz-Effekte
-- **Improved Shadows**: Mehrschichtige Schatten für Tiefe
-- **Better Typography**: Optimierte Schriftgrößen und -gewichte
-- **Color Coding**: Konsistente Farbkodierung für verschiedene Elemente
-
-### Animationen
-- **Fade-in Effects**: Sanfte Einblendungen beim Laden
-- **Hover Animations**: Interaktive Hover-Effekte
-- **Loading States**: Verbesserte Ladeanimationen
-- **Smooth Transitions**: Flüssige Übergänge zwischen Zuständen
-
-### Benutzerfreundlichkeit
-- **Enhanced Navigation**: Verbesserte Tab-Navigation
-- **Better Forms**: Modernere Formulare mit visueller Hierarchie
-- **Improved Cards**: Bessere Kartendesigns mit Hover-Effekten
-- **Theme Switcher**: Elegante Theme-Umschaltung
-- **Mobile Optimization**: Optimierte mobile Erfahrung
-
-## 🚀 Installation
-
-```bash
-# Repository klonen
-git clone https://github.com/your-username/vocare-app.git
-cd vocare-app
-
-# Dependencies installieren
-npm install
-
-# Entwicklungsserver starten
-npm run dev
-```
-
-## 📱 Verwendung
-
-1. **Termine erstellen**: Klicken Sie auf "Neuer Termin" im Header
-2. **Termine bearbeiten**: Klicken Sie auf einen Termin in der Liste
-3. **Filtern**: Nutzen Sie die Filterleiste für gezielte Suche
-4. **Ansichten wechseln**: Verwenden Sie die Tabs für verschiedene Ansichten
-5. **Theme wechseln**: Nutzen Sie den Theme-Switcher im Header
-
-## 🎨 Design-System
-
-### Farben
-- **Primary**: Indigo (#4f46e5)
-- **Secondary**: Purple (#7c3aed)
-- **Accent**: Cyan (#06b6d4)
-- **Success**: Green (#10b981)
-- **Warning**: Amber (#f59e0b)
-- **Error**: Red (#ef4444)
-
-### Schatten
-- **Soft**: Subtile Schatten für Karten
-- **Medium**: Mittlere Schatten für Hover-Effekte
-- **Strong**: Starke Schatten für Modals
-- **Glow**: Glüheffekte für Buttons
-
-### Animationen
-- **fade-in-up**: Sanfte Einblendung von unten
-- **slide-in-right**: Einblendung von rechts
-- **hover-lift**: Anheben beim Hover
-- **hover-scale**: Vergrößerung beim Hover
-
-## 📄 Lizenz
-
-MIT License - siehe [LICENSE](LICENSE) für Details.
-
-## 🤝 Beitragen
-
-Beiträge sind willkommen! Bitte lesen Sie unsere [Contributing Guidelines](CONTRIBUTING.md).
-
-## 📞 Support
-
-Bei Fragen oder Problemen erstellen Sie bitte ein [Issue](https://github.com/your-username/vocare-app/issues).
+This is a fullstack prototype for the **Vocare tech challenge** — a small, responsive scheduling app designed for managing appointments (Termine), clients (Patienten), and categories. It is built using **Next.js**, **Tailwind CSS**, **shadcn/ui**, and **Supabase**.
 
 ---
 
-Entwickelt mit ❤️ für medizinische Praxen
+## ✨ Features
 
+- 📅 Appointment list view (calendar & filters planned)
+- ✅ Create/Edit appointment structure (UI in progress)
+- 🔍 Filter by patient, category, date
+- 🎨 Tailwind theming + responsive design
+- 🔐 Supabase integration with working schema
+
+---
+
+## 🛠 Tech Stack
+
+| Area         | Tool                  |
+|--------------|-----------------------|
+| Frontend     | [Next.js](https://nextjs.org/) (App Router + TypeScript) |
+| Styling      | [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) |
+| Backend      | Supabase (PostgreSQL + Auth) |
+| UI Components| shadcn/ui (Dialog, HoverCard, etc.) |
+| Hosting      | Vercel  |
+
+---
+
+## 📂 Project Structure (Summary)
+
+src/
+├── app/appointments/ # Main calendar view
+├── components/appointments/ # AppointmentCard, filters, form
+├── lib/ # Supabase client + server setup
+├── types/ # Shared TypeScript models
+
+
+
+---
+
+## 🚧 Supabase Note
+
+The credentials provided in the challenge PDF **did not work** for me (`Invalid API key` errors).
+
+➡️ To proceed, I set up my **own Supabase project** using the exact schema provided in the PDF.  
+No schema fields were changed or added.
+
+If needed, I can share access to my Supabase instance for review.
+
+---
+
+## 🌍 Language Note
+
+Apologies for mixing **German** in some of the UI and text 🙏  
+I'm currently learning German (B1 level), and I used AI to help me generate and translate some UI labels.
+
+However, I chose to write most of the code and documentation in **English**, so I can be 100% confident about what I’m building and communicating.
+
+---
+
+## 📦 How to Run Locally
+
+   ```bash
+   git clone https://github.com/skander2001/vocare
+   cd vocare
+
+
+npm install
+
+
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+
+
+npm run dev
+
+
+---
+
+Let me know if you want the same `README.md` in German too (for the hiring team), or if you’d like me to fill in your GitHub repo name and Supabase URL for submission.
