@@ -41,7 +41,7 @@ export function MonthlyView({ appointments, onEdit }: MonthlyViewProps) {
   }
 
   const getAppointmentsForDay = (day: Date) => {
-    return appointments.filter((apt) => apt.start && isSameDay(new Date(apt.start), day))
+    return appointments.filter((apt) => apt.start_time && isSameDay(new Date(apt.start_time), day))
   }
 
   const previousMonth = () => setCurrentMonth(subMonths(currentMonth, 1))
@@ -94,19 +94,19 @@ export function MonthlyView({ appointments, onEdit }: MonthlyViewProps) {
                           onClick={() => onEdit(appointment)}
                         >
                           <div className="font-medium truncate">{appointment.title || "Termin"}</div>
-                          {appointment.start && (
-                            <div className="text-muted-foreground">{format(new Date(appointment.start), "HH:mm")}</div>
+                          {appointment.start_time && (
+                            <div className="text-muted-foreground">{format(new Date(appointment.start_time), "HH:mm")}</div>
                           )}
                         </div>
                       </HoverCardTrigger>
                       <HoverCardContent className="w-80">
                         <div className="space-y-2">
                           <h4 className="font-semibold">{appointment.title || "Unbenannter Termin"}</h4>
-                          {appointment.start && (
+                          {appointment.start_time && (
                             <p className="text-sm">
                               <strong>Zeit:</strong>{" "}
-                              {format(new Date(appointment.start), "dd.MM.yyyy HH:mm", { locale: de })}
-                              {appointment.end && ` - ${format(new Date(appointment.end), "HH:mm")}`}
+                              {format(new Date(appointment.start_time), "dd.MM.yyyy HH:mm", { locale: de })}
+                              {appointment.end_time && ` - ${format(new Date(appointment.end_time), "HH:mm")}`}
                             </p>
                           )}
                           {appointment.patients && (

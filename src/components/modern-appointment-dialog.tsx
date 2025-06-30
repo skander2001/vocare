@@ -12,7 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { createAppointment, updateAppointment, deleteAppointment } from "@/lib/appointments"
-import { Calendar, Clock, MapPin, User, Tag, FileText, Trash2, Save, AlertTriangle } from "lucide-react"
+import { Calendar, Clock, MapPin, User, Tag, FileText, Trash2, Save } from "lucide-react"
 import type { Appointment, Patient, Category } from "@/types/index"
 
 interface ModernAppointmentDialogProps {
